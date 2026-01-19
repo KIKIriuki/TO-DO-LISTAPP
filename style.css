@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root{
+  --bg1:#0f1724;
+  --bg2:#0b1220;
+  --accent:#2563eb;
+  --muted:#9ca3af;
+  --glass: rgba(255,255,255,0.04);
+  --glass-2: rgba(255,255,255,0.06);
+  --yellow:#fbbf24;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background: linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#e6eef8;
+  display:flex;
+  justify-content:center;
+  padding:28px;
+}
+
+.dashboard{width:100%;max-width:1200px}
+
+.header{display:flex;gap:20px;align-items:flex-start;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap}
+.title-block h1{color:var(--accent);font-size:1.9rem;margin-bottom:6px}
+.datetime{color:var(--muted)}
+
+.card{background:var(--glass);backdrop-filter:blur(6px);padding:14px;border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+.summary{min-width:220px;text-align:center}
+.summary h2{color:var(--accent);margin-bottom:6px}
+#summaryText{font-weight:600}
+.controls{margin-top:8px}
+.controls button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 8px;border-radius:8px;color:var(--muted);cursor:pointer}
+.controls button:hover{border-color:var(--accent);color:var(--accent)}
+
+.planner{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+
+/* Day card */
+.day-card{display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.day-header{display:flex;justify-content:space-between;align-items:center}
+.day-name{color:#93c5fd;margin:0;font-size:1.15rem}
+.day-actions{display:flex;gap:8px;align-items:center}
+.new-slot-time{padding:6px 8px;border-radius:8px;border:none;background:var(--glass-2);color:inherit;outline:none}
+.add-slot-btn{background:var(--accent);border:none;padding:8px 10px;border-radius:8px;color:white;cursor:pointer;font-weight:600}
+.add-slot-btn:hover{filter:brightness(.95)}
+
+/* slots */
+.slots-wrap{display:flex;flex-direction:column;gap:10px;max-height:520px;overflow:auto;padding-right:6px}
+.slot{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:10px;padding:10px;border:1px solid rgba(255,255,255,0.03)}
+.slot-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.slot-time{font-weight:600;color:#cfe8ff}
+.slot-actions button{background:transparent;border:none;color:#ffb4b4;cursor:pointer;font-size:1rem}
+.slot-body{display:flex;flex-direction:column;gap:8px}
+.slot-add{display:flex;gap:8px}
+.task-input{flex:1;padding:8px;border-radius:8px;border:none;background:rgba(255,255,255,0.03);color:inherit;outline:none}
+.add-task-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 8px;border-radius:8px;color:var(--accent);cursor:pointer}
+.add-task-btn:hover{background:rgba(37,99,235,0.06)}
+.task-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+
+/* task item */
+.task-item{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);border-left:4px solid transparent}
+.task-item .left{display:flex;gap:10px;align-items:center}
+.task-text{max-width:420px;word-break:break-word}
+.task-buttons{display:flex;gap:8px;align-items:center}
+.task-buttons button{background:transparent;border:none;color:#93c5fd;cursor:pointer;font-size:1rem;padding:4px}
+.task-buttons button:hover{color:var(--yellow)}
+.task-item.done{opacity:0.6;text-decoration:line-through}
+.task-item.highlight{border-left-color:var(--yellow);box-shadow:0 6px 18px rgba(251,191,36,0.06)}
+
+/* current markers */
+.current-day{outline:3px solid rgba(37,99,235,0.12)}
+.current-slot{box-shadow:0 8px 32px rgba(37,99,235,0.07);transform:translateY(-3px)}
+
+/* small screens */
+@media (max-width:640px){
+  .header{flex-direction:column;align-items:flex-start;gap:12px}
+  .summary{width:100%}
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Day Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <header class="header">
+      <div class="title-block">
+        <h1>Day Planner</h1>
+        <p id="datetime" class="datetime"></p>
+      </div>
+      <div class="summary card">
+        <h2>Weekly Summary</h2>
+        <p id="summaryText">0 of 0 tasks done</p>
+        <div class="controls">
+          <button id="resetBtn" title="Clear all saved data">Reset Data</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="planner" class="planner"></main>
+  </div>
+
+  <template id="day-template">
+    <div class="day-card card">
+      <div class="day-header">
+        <h3 class="day-name"></h3>
+        <div class="day-actions">
+          <input class="new-slot-time" type="time" />
+          <button class="add-slot-btn">+ Slot</button>
+        </div>
+      </div>
+
+      <div class="slots-wrap"></div>
+    </div>
+  </template>
+
+  <template id="slot-template">
+    <div class="slot">
+      <div class="slot-top">
+        <div class="slot-time"></div>
+        <div class="slot-actions">
+          <button class="remove-slot" title="Remove this time slot">✕</button>
+        </div>
+      </div>
+
+      <div class="slot-body">
+        <div class="slot-add">
+          <input class="task-input" type="text" placeholder="Add task (press Enter or click +)" />
+          <button class="add-task-btn">+</button>
+        </div>
+        <ul class="task-list"></ul>
+      </div>
+    </div>
+  </template>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
